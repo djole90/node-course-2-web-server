@@ -2,6 +2,8 @@ const express = require('express')
 const hbs = require('hbs')
 const fs = require('fs')
 
+const port = process.env.PORT
+
 const app = express()
 
 
@@ -21,9 +23,9 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use((req, res, next) => {
-    res.render('maintance.hbs')
-})
+// app.use((req, res, next) => {
+//     res.render('maintance.hbs')
+// })
 
 app.use(express.static(__dirname + '/public'))
 hbs.registerHelper('getCurrentYear', () => new Date().getFullYear())
@@ -52,4 +54,6 @@ app.get('/bad', (req, res, next) => {
     })
 })
 
-app.listen(3000)
+
+
+app.listen(port)
