@@ -48,6 +48,15 @@ app.get('/about', (req, res, next) => {
     })
 })
 
+app.get('/portfolio', (req, res, next) => {
+    res.render('about.hbs', {
+        pageTitle: 'Portfolio',
+        currentYear: new Date().getFullYear(),
+        welcomeMessage: 'Eve ga portfolio majke mu ga nabijem'
+       
+    })
+})
+
 app.get('/bad', (req, res, next) => {
     res.send({
         errorMessage: 'Jebo ga evo i ERRORRRA'
